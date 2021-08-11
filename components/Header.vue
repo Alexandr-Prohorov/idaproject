@@ -27,6 +27,7 @@
   border-radius: 0px 0px 8px 8px;
   justify-content:space-between;
   align-items: center;
+  z-index: 1000;
 }
 
 .header__basket{

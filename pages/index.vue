@@ -1,8 +1,19 @@
 <template>
   <div class="container">
     <Header/>
-    <Sidebar/>
-    <Card/>
+    <div class="container__content">
+      <Sidebar/>
+      <div class="catalog__cart">
+        <Cart/>
+        <Cart/>
+        <Cart/>
+        <Cart/>
+        <Cart/>
+        <Cart/>
+        <Cart/>
+
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,8 +32,23 @@ body{
 }
 
 .container{
-  width: 1220px;
+  width: 100%;
   margin: 0 auto;
+}
+
+.container__content{
+  display: flex;
+}
+
+
+.catalog__cart{
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+
+  margin-top: 152px;
+  margin-left: 42px;
+
 }
 
 </style>

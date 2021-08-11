@@ -14,7 +14,7 @@
 .sidebar{
   margin-top: 100px;
   display: inline-block;
-
+  margin-left: 88px;
 }
 
 .sidebar__title{
