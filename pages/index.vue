@@ -4,21 +4,32 @@
     <div class="container__content">
       <Sidebar/>
       <div class="catalog__cart">
-        <Cart/>
-        <Cart/>
-        <Cart/>
-        <Cart/>
-        <Cart/>
-        <Cart/>
-        <Cart/>
-
+        <Cart v-for="item in items" :key="item.id" :item="item"/>
       </div>
     </div>
+    <Bascet/>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+
+  data: function(){
+    return{
+      items:[]
+    };
+  },
+
+  methods: {},
+  mounted(){
+    this.$axios
+     .get(`https://frontend-test.idalite.com/api/product`)
+     .then((result) => {
+       this.items = result.data
+     });
+  },
+
+}
 </script>
 
 

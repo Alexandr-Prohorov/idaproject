@@ -2,12 +2,33 @@
   <div class="sidebar">
     <div class="sidebar__title">Каталог</div>
     <ul class="sidebar__nav">
-      <li class="sidebar__catalog__nav">Рюкзаки</li>
-      <li class="sidebar__catalog__nav">Футболки</li>
-      <li class="sidebar__catalog__nav">Рубашки</li>
+      <li class="sidebar__catalog__nav" v-for="item in items" :key="item.id">{{item.name}}</li>
+
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+
+  data: function(){
+    return{
+      items:[]
+    };
+  },
+
+  methods: {},
+  mounted(){
+    this.$axios
+     .get(`https://frontend-test.idalite.com/api/product-category`)
+     .then((result) => {
+       this.items = result.data
+     });
+  },
+
+}
+</script>
+
 
 
 <style>
@@ -24,7 +45,9 @@
 
 .sidebar__nav{
   padding: 0;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .sidebar__catalog__nav{
